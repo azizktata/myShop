@@ -1,0 +1,21 @@
+.profile{
+    
+    width: 80%;
+    padding: 60;
+    height: 65%;
+    margin: 5% 10%;
+    -webkit-box-shadow: 1px 8px 40px 8px #F1EBE7;
+    -moz-box-shadow: 1px 8px 40px 8px #F1EBE7;
+    box-shadow: 1px 8px 40px 8px rgba(227,227,227,1);
+    color: #F1EBE7;
+    border-radius: 13px;
+    
+}
+.update-form{
+    display: flex;
+    flex-flow: row wrap;
+}
+.input{
+    margin:2% 4%;
+    width: 40%;
+}

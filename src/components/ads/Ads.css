@@ -1,0 +1,22 @@
+.ads-container{
+    height: 1200px;
+    width: 90%;
+    margin: 5% 5%;
+    display: flex;
+   
+}
+
+.left{
+    height:100% ;
+    width: 25%;
+    margin-right:5% ;
+  
+}
+.right{
+    height:100% ;
+    width: 90%;
+    padding: 1% 2%;
+   
+    
+ 
+}

@@ -1,0 +1,34 @@
+.footer{
+    height: 10%;
+    width: auto;
+    background: #0E303F;
+}
+.firstline{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+
+    margin: 0 10%;
+    padding-top: 2%;
+    
+}
+.firstline p{
+    color: aliceblue;
+    font-family: "Inria Sans";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 30px;
+    letter-spacing: 0em;
+}
+
+.secondline{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+
+    margin: 0 10%;
+    padding: 3% 0%;
+    color: azure;
+}
+

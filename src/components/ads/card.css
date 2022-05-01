@@ -1,0 +1,51 @@
+.cards-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    overflow-x: auto;
+    width: auto;
+    
+}
+
+.card {
+    width: 30%;
+    font-size: 12px;
+    flex: auto 0 auto;         
+    display: flex;          
+    flex-direction: column; 
+    cursor: pointer;
+    align-items: center;
+}
+.card:hover{
+    color: grey;
+}
+
+.card--image {
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+    
+
+}
+.img-div {
+    height: 75%;
+    margin-bottom: 3%;
+}
+
+
+.card--title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: medium;
+    
+    margin-top: 5%;
+    
+}
+
+.card--price {
+    font-size: medium;
+    font-weight: 200;
+    margin-top: 0;
+    padding-bottom: 0%;
+    justify-content: flex-end;
+}

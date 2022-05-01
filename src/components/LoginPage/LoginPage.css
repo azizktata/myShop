@@ -1,0 +1,154 @@
+.main{
+    height: auto;
+    display: flex;
+    
+    width: auto;
+    /* background: #F1EBE7; */
+    background: #f7f7f7;
+}
+.login{
+    
+    width: 60%;
+    height: 450px;
+    margin: 10% 28%;
+    
+   
+}
+.login  .input{
+    width: 85%;
+    
+}
+
+h2{
+    font-family: 'Oxygen';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 51px;
+    text-align: left;
+    color: #000000;
+    width: auto;
+
+}
+.login > h2 {
+    width: 242.71px;
+    height: 63px;
+    
+    text-align: left;
+    left: 30px;
+    top: 0px;
+    margin-bottom: 30px;
+}
+
+.register > h2 {
+    width: 100%;
+height: 63px;
+left: 20px;
+    top: 0px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+.register{
+    
+    width: 80%;
+    padding: 50px;
+    height: 60%;
+    margin: 5% 15%;
+    -webkit-box-shadow: 1px 8px 40px 8px #F1EBE7;
+-moz-box-shadow: 1px 8px 40px 8px #F1EBE7;
+box-shadow: 1px 8px 40px 8px rgba(227,227,227,1);
+color: #F1EBE7;
+border-radius: 13px;
+    
+}
+.register-form{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.login button {
+    width: 80%;
+    height: 60px;
+    
+    margin: 3% 7%;
+    background: #212A2F;
+    border-radius: 17px;
+    outline: none;
+    border: none;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 40px;
+    text-align: center;
+    font-style: normal;
+    color: #FFFFFF;
+    cursor: pointer;
+
+}
+.success {
+    height: 350px;
+    
+}
+.success > h4 {
+    margin-left: 35%;
+    padding-top: 10%;
+    color: #000000;
+}
+.login button:hover{
+    background: #10161A;
+}
+
+.create-account{
+    
+    font-style: normal;
+    font-weight: 250;
+    font-size: 20px;
+    line-height: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    margin-left: 35%;
+    margin-bottom: 5%;
+
+  
+
+}
+
+
+.register button {
+    width: 90%;
+    height: 70px;
+    margin-left: 3%;
+    background: #212A2F;
+    border-radius: 17px;
+    outline: none;
+    border: none;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 40px;
+    text-align: center;
+    font-style: "normal";
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 4% 3%;
+    
+}
+.register button:hover{
+    background: #10161A;
+}
+
+
+.cancel{
+text-decoration: none;
+color: black;
+margin: 5%;
+}
+
+.err{
+    position: relative;
+    color: red;
+    
+}
+.input{
+    margin:3% 4%;
+    width: 40%;
+}

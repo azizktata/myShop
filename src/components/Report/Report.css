@@ -1,0 +1,25 @@
+.report{
+    
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      
+}
+
+.report-form{
+    margin-top: 7vh;
+    opacity:80%;
+    background: black;
+    padding-right: 80px;
+    padding-left: 80px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .box {
+    display: block;
+    transition: 800ms;
+    opacity: 1;
+  }

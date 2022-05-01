@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+}
+.nav-menu{
+  display: none;
+}
+
+.nave {
+    /* position:fixed; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+     background-color: #ffffff;
+    font-size: 1.3rem;
+    padding: 1rem 5rem;
+    border-bottom:1px solid rgb(219, 216, 216) ;
+    
+
+}
+.nave__links{
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 6%;
+  font-weight: 20px;
+  line-height: 25px;
+}
+
+
+.shop {
+  display: flex;
+  justify-content: center;
+}
+.searchBar {
+  width: 50%;
+  align-items: center;
+  position: relative;
+ 
+}
+
+
+
+@media screen and (max-width: 1050px) {
+  .nave__links{
+    display: none;
+  }
+  .nav-menu{
+    display: flex;
+  }
+   
+}
+
+body {
+  font-family: "Oxygen", sans-serif;
+  
+}
