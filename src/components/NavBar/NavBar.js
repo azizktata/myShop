@@ -70,7 +70,7 @@ export default function NavBar(props){
                     />
                 </div>
                 
-                <NavLink to={user ? "/sell/step1" : "/account"} style={style}>Sell item</NavLink>
+                <NavLink to="/sell/step1"  style={style}>Sell item</NavLink>
                 <a className="about-us" href="#Footer" style={style}>about us</a>
 
                 <div className="account">

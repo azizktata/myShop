@@ -17,7 +17,65 @@ import Profile from './components/Profile/Profile';
 function App() {
   const [userData, setUserData] = React.useState(null);
 
-
+const products = [
+	{
+    "item": {
+      "id": 32,
+      "title": "haval",
+      "description": "bonne etat",
+      "category": "cars",
+      "price": "250000.000",
+      "state": true,
+      "seller": "aziz",
+      "uploadDate": "2022-06-04T17:59:51.039711Z"
+    },
+    "images": [
+      {
+        "id": 28,
+        "itemId": 32,
+        "imageData": "/media/uploads/haval.jpg"
+      }
+    ]
+  },
+  {
+    "item": {
+      "id": 39,
+      "title": "iphoneXR",
+      "description": "bonne etat",
+      "category": "electronics",
+      "price": "250000.000",
+      "state": true,
+      "seller": "aziz",
+      "uploadDate": "2022-06-06T22:21:36.590330Z"
+    },
+    "images": [
+      {
+        "id": 36,
+        "itemId": 39,
+        "imageData": "/media/uploads/iphoneXR.jpg"
+      }
+    ]
+  },
+  {
+    "item": {
+      "id": 40,
+      "title": "house",
+      "description": "germany",
+      "category": "real estate",
+      "price": "5000.000",
+      "state": true,
+      "seller": "aziz",
+      "uploadDate": "2022-06-06T22:22:46Z"
+    },
+    "images": [
+      {
+        "id": 37,
+        "itemId": 40,
+        "imageData": "/media/uploads/housefrsale.jpg"
+      }
+    ]
+  }
+]
   const [filterItems,setFilterItems] = React.useState(null)
   const [searchValue, setSearchValue] = React.useState("");
    
@@ -38,7 +96,7 @@ function App() {
   const item =  axios.create({
     baseURL : "http://127.0.0.1:8000/api/items"
   })
-  const [items,setItems] = React.useState(null)
+  const [items,setItems] = React.useState(products)
   React.useEffect(()=>{
     async function getItems(){
       try{
