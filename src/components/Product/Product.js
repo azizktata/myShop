@@ -23,6 +23,7 @@ export default function Product(props){
       const [usersell,setUsersell] = React.useState({})
       
     //   const tosell = {props.seller ? }
+    const [msg, setMsg] = React.useState("")
     React.useEffect(()=>{
         async function getuser(){
             try{
@@ -35,6 +36,7 @@ export default function Product(props){
             
         }
         getuser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
    
@@ -73,7 +75,10 @@ export default function Product(props){
       try{
         const response =await axios.post("http://127.0.0.1:8000/api/report/",report)
         console.log(response)
-        window.location.reload(false);       
+        if(response.status===201)
+        {
+            setMsg("reported")
+        }
       }catch(error){
           console.log(error);
       }
@@ -83,15 +88,18 @@ export default function Product(props){
         <div className="content-container">
             <Link to="/ads" style={{textDecoration:"none"}}><Chip icon={<ArrowBackIcon />} label="Ads"  /></Link><span>  {props.title}</span>
             <div className="product-container">
-                <ImageList sx={{ width: "100%", height: "70%", margin:"7% 1%",ml:"15%" }}  >
+                <ImageList sx={{ width: "100%", height: "70%", margin:"5% 1%",ml:"15%" }}  >
                     {props.images.map((img)=> {
                         return (
-                        <ImageListItem key={props.title}  >
+                        <ImageListItem key={props.title}  className="img-container">
                         <img
+                        className="img"
                         src={`../..${img.imageData}?w=248&fit=crop&auto=format`}
                         // srcSet={`${img}?w=248&fit=crop&auto=format&dpr=2 2x`}
                         alt={props.title}
                         loading="lazy"
+
+                        
                     />
                     </ImageListItem>
                         )
@@ -102,7 +110,7 @@ export default function Product(props){
                 <h5>{props.price}DT</h5>
                 <h5>{props.title}</h5>
                 <hr/>
-                <h5>{props.date}</h5>
+                <h5>{props.date.substr(0,10)}</h5>
                 <h5>{usersell.location}</h5>
                 <hr/>
                 <h5>{props.username}</h5>
@@ -113,7 +121,7 @@ export default function Product(props){
             <div className="product-description">
             <h4>description :</h4>
             <p>{props.description}</p>
-            <button className="report-btn" onClick={handleOpen}>report</button>
+            <button className="report-btn" disabled={!userData} onClick={handleOpen}>report</button>
             <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -127,6 +135,9 @@ export default function Product(props){
       >
         <Fade in={open}>
           <Box sx={style}>
+          {msg.length>0 && <div className="msg ">
+                <p>{msg}</p>
+            </div>}
           <InputLabel htmlFor="title">Title </InputLabel>
                 <TextField     
                     type="text"

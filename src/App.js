@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
@@ -23,10 +23,9 @@ function App() {
    
   const handleSearchClick = (e)=>{
     setFilterItems(()=>{return(
-        items.filter((item)=>{
-          if( item.item.title===searchValue){
-            return item}
-        })
+        items.filter((item)=>
+          item.item.title===searchValue
+        )
     )})
         console.log(filterItems)
       }
@@ -54,6 +53,7 @@ function App() {
     }
     getItems();
     
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   

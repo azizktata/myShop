@@ -23,6 +23,8 @@ export default function SellPage(){
     });
     const [images,setImages] = React.useState([])
 
+    const [msg, setMsg] = React.useState("")
+
     const handleChange = (event) => {
         const {name, value} = event.target
         setValues(prevvalue => {return ({
@@ -45,6 +47,7 @@ export default function SellPage(){
           const response =  await axios.post("http://127.0.0.1:8000/api/item/",values)
           
           console.log(response)
+         
             return response.data.id
         //   await setItemId(response.data.id)
         }catch(error){
@@ -58,8 +61,18 @@ export default function SellPage(){
               images.forEach(async (img)=>{
               try{
                 fd.append('image',img)
-                  const response = await axios.post(`http://127.0.0.1:8000/api/image/${id}/`,img)
+                const itm = {
+                    itemId:id,
+                    imageData:`/media/uploads/${img.name}`
+                }
+                console.log(`/media/uploads/${img.name}`)
+                  const response = await axios.post(`http://127.0.0.1:8000/api/image/`,itm)
                 console.log(response);
+                if(response.status===201)
+                {
+                    setMsg("item added successfuly")
+                }
+                
               }
               catch(error){
               console.log(error)
@@ -71,7 +84,11 @@ export default function SellPage(){
       const style = {paddingBottom:4, width:'auto'}
     return (
         <div className="sell-content">
+            {msg.length>0 && <div className="msg ">
+                <p>{msg}</p>
+            </div>}
             
+
             <div className="sell-container">
             
                 <div className="output">
@@ -123,6 +140,7 @@ export default function SellPage(){
                                 style={{marginBottom:'15%'}}
                                 accept="image/png, image/jpeg"  onChange={handleImageChange} required multiple />
                         
+                            
                         <Button onClick={HandleSubmit} variant="contained">Share</Button>
                     </Route>
 

@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import shop from "../../images/shop.jpg"
 import HomeLayout from './HomeLayout';
-import { Shop } from '@mui/icons-material';
+
 import { NavLink } from 'react-router-dom';
 
 

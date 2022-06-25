@@ -1,5 +1,5 @@
 .content-container{
-    margin: 5% 9%;
+    margin: 5% 8%;
     width: 85%;
     height: 1200px;
     
@@ -8,12 +8,27 @@
 .product-container{
     width: 100%;
     height: 50%;
-  
+    
     margin-top: 3;
     z-index: 1;
     display: flex;
     
 
+}
+.img-container{
+    width: 30rem;
+    height: 50%;
+   
+}
+.msg{
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 0;
+    padding: 10px;
+    color: #270;
+    background-color: #DFF2BF;
+  }
+.img{
+    width: 100%;
 }
 .details-container{
     width: 35%;

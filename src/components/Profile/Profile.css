@@ -11,6 +11,13 @@
     border-radius: 13px;
     
 }
+.msg{
+    border-radius: 3px 3px 3px 3px;
+    margin: 0 0;
+    padding: 10px;
+    color: #270;
+    background-color: #DFF2BF;
+  }
 .update-form{
     display: flex;
     flex-flow: row wrap;

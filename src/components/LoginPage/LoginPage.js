@@ -4,14 +4,16 @@ import {BrowserRouter as Router, Route, Link, Switch} from "react-router-dom"
 import "./LoginPage.css"
 import axios from "axios";
 import InputLabel from '@mui/material/InputLabel';
+import { useHistory } from "react-router-dom";
 
 
 const user = axios.create({
   baseURL: "http://127.0.0.1:8000/api/login/user" 
 });
 export default function LoginPage(){
+  const history = useHistory()
     // const {setAuth} = useContext(AuthContext);
-      const [userData, setUserData] = React.useState(null)
+      const [ setUserData] = React.useState(null)
     
     const [loginData, setLoginData]=React.useState({
         username:'',
@@ -113,7 +115,7 @@ export default function LoginPage(){
         
         const response =  await user.get(`/${username}/${password}`)
             //  console.log(response.data)
-          
+              
               return response.data.data;
               
         } catch (error) {
@@ -125,11 +127,14 @@ export default function LoginPage(){
           e.preventDefault();
            
              const data = await getuser();
-             window.location.reload(false);
-               console.log(data)
+            //  window.location.reload(false);
+               
             if(data){
               localStorage.setItem('user', loginData.username)
+              
               setUserData(data);
+              history.push("/");
+              window.location.reload(false);
               
             }
             

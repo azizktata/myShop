@@ -173,6 +173,7 @@ export default function Ads(props){
                return  b.item.id - a.item.id}
                else if (filter==="Recently added"){
                 return  a.item.id - b.item.id}
+                return a - b
                })
               .map((item) =>{return (
                 <>

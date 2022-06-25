@@ -31,3 +31,10 @@
     position: absolute;
     padding:5% 14%;
 }
+.msg{
+  border-radius: 3px 3px 3px 3px;
+  margin: 0 0;
+  padding: 10px;
+  color: #270;
+  background-color: #DFF2BF;
+}

@@ -3,19 +3,22 @@ import axios from "axios";
 import {  Card, CardActions, CardContent, CardMedia, Container, Grid, TextField, Typography } from "@mui/material";
 import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
+import { useHistory } from "react-router-dom";
 import "./Profile.css"
 export default function Profile(props){
     const {items} = props
     const user = localStorage.getItem('user')
+    const history = useHistory()
     const [userUpdate, setUserUpdate] = React.useState({
-        username:user,
+        
         firstName:"",
         lastName:"",
+        location:"",
         email:"",
         phone:"",
         password:"",
     })
-    
+    const [msg, setMsg] = React.useState("")
    
     function HandleInput(e){
         const {name, value} = e.target
@@ -26,8 +29,12 @@ export default function Profile(props){
         e.preventDefault()
         axios.put(`http://127.0.0.1:8000/api/user/${user}/`,userUpdate)
         .then((response)=>{
+          if(response.status===201)
+                {
+                    setMsg("user updated successfuly")
+                }
           
-            window.location.reload(false);
+            // window.location.reload(false);
         }).catch((error)=>
         console.log(error)
         )
@@ -42,18 +49,33 @@ export default function Profile(props){
               console.log(error)
           })
       }
+      function deleteUser(value){
+          
+        axios.delete(`http://127.0.0.1:8000/api/user/${value}`)
+        .then((response)=>{
+            console.log(response)
+            localStorage.clear();
+            history.push("/");
+            window.location.reload(false);
+        }).catch((error)=>{
+            console.log(error)
+        })
+    }
     return (
             
         <div className="profile">
+          {msg.length>0 && <div className="msg ">
+                <p>{msg}</p>
+            </div>}
             <div className="user-information">
             <form className="update-form" onSubmit={HandleSubmit}>
                   <div className="input">
                     <InputLabel htmlFor="FirstName">FIRST NAME</InputLabel>
                     <TextField 
-                    size="large"
+                    
                         type="text"
-                        name="FirstName"
-                        value={userUpdate.FirstName}
+                        name="firstName"
+                        value={userUpdate.firstName}
                         onChange={HandleInput}
                         required
                         sx={{width:"100%", backgroundColor:"white"}}
@@ -118,6 +140,8 @@ export default function Profile(props){
                     />
                     </div>
                     <Button onClick={HandleSubmit} variant="contained" sx={{width:"80%",alignItems:"center",margin:"3% 9%", border:"2px solid"}}>Update</Button>
+                    
+                    <Button onClick={()=>deleteUser(user)} variant="outlined" color="error" sx={{width:"80%",alignItems:"center",margin:"3% 9%", border:"2px solid"}}>Delete Account</Button>
                     </form>
             </div>
            
@@ -125,7 +149,7 @@ export default function Profile(props){
             <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {items && items.filter((it)=>{if(it.item.seller===user)return it}).map((card) => (
+            {items && items.filter((it)=>it.item.seller===user).map((card) => (
               <Grid item key={card.item.id} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
